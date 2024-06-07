@@ -5,16 +5,11 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
+# config/initializers/cors.rb
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
-    allow do
-      origins 'http://127.0.0.1:5500'
-  
-      resource '/tarefas',
-        headers: :any,
-        methods: [:get, :post, :put, :patch, :delete, :options, :head]
-  
-      resource '/membros',
-        headers: :any,
-        methods: [:get, :post, :put, :patch, :delete, :options, :head]
-    end
-  end  
+  allow do
+    origins '*' 
+    resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
+  end
+end
+
