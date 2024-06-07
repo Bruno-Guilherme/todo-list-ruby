@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_07_131152) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_07_132946) do
   create_table "membros", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "email"
-    t.string "nome"
+    t.string "email", null: false
+    t.string "nome", null: false
     t.bigint "tarefa_id"
+    t.index ["email"], name: "index_membros_on_email", unique: true
     t.index ["tarefa_id"], name: "index_membros_on_tarefa_id"
   end
 
