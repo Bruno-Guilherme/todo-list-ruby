@@ -1,5 +1,5 @@
 class Tarefa < ApplicationRecord
-  belongs_to :membro
+  belongs_to :membro, optional: true
   VALID_FINALIZADA = [true, false]
   VALID_PRIORIDADE = ['baixa', 'media', 'alta']
 

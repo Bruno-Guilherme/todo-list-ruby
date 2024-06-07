@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_07_132946) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_07_135305) do
   create_table "membros", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
     t.string "nome", null: false
@@ -25,7 +25,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_07_132946) do
     t.boolean "finalizada", default: false, null: false
     t.date "dataTermino"
     t.string "prioridade", default: "baixa", null: false
+    t.bigint "membro_id"
+    t.index ["membro_id"], name: "index_tarefas_on_membro_id"
   end
 
   add_foreign_key "membros", "tarefas"
+  add_foreign_key "tarefas", "membros"
 end
