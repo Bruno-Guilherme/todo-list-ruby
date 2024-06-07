@@ -39,12 +39,10 @@ class TarefasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_tarefa
       @tarefa = Tarefa.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def tarefa_params
       params.require(:tarefa).permit(:nome, :descricao, :finalizada, :prioridade, :membro_id)
     end    
