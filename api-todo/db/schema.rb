@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_07_124843) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_07_131152) do
+  create_table "membros", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "email"
+    t.string "nome"
+    t.bigint "tarefa_id"
+    t.index ["tarefa_id"], name: "index_membros_on_tarefa_id"
+  end
+
   create_table "tarefas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nome", limit: 50, null: false
     t.text "descricao", size: :tiny
@@ -19,4 +26,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_07_124843) do
     t.string "prioridade", default: "baixa", null: false
   end
 
+  add_foreign_key "membros", "tarefas"
 end

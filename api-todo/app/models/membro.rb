@@ -1,3 +1,3 @@
 class Membro < ApplicationRecord
-  belongs_to :tarefa
+  has_many :tarefas, dependent: :destroy
 end
